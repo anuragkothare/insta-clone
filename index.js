@@ -1,14 +1,22 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const fs = require('fs');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
 // importing config file 
 const appConfig = require('./config/appConfig');
 
-
+// creating application instance
 const app = express();
 
-// Bootstraping Routes
+
+// middlewares
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded( {extended: false} ));
+app.use(cookieParser());
+
+// Bootstrap Routes
 let routesPath = './routes';
 fs.readdirSync(routesPath).forEach(function (file) {
     if (~file.indexOf('.js')) {
@@ -17,6 +25,13 @@ fs.readdirSync(routesPath).forEach(function (file) {
         let route =require(routesPath + '/' + file);
         route.setRouter(app);
     }
+})
+
+
+// Bootstrap Models
+let modelsPath = './models';
+fs.readdirSync(modelsPath).forEach(function (file) {
+    if (~file.indexOf('.js')) require(modelsPath + '/' + file);
 })
 
 app.listen(appConfig.port, () => {
