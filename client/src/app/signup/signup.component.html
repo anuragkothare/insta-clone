@@ -1,0 +1,71 @@
+<br>
+<div class="container">
+
+  <div class="example-container">
+    <mat-card class="matcard">
+      <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRritekVeAOs0F0X6ZmselmwdqK8A5olPnAij8UEMXJxiUuryZK">
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="First Name" [formControl]="firstNameFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="firstNameFormControl.hasError('Username') && !firstNameFormControl.hasError('required')">
+          Please enter a valid first name
+        </mat-error>
+        <mat-error *ngIf="userFormControl.hasError('required')">
+          First Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br><br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Last Name" [formControl]="lastNameFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="lastNameFormControl.hasError('Username') && !lastNameFormControl.hasError('required')">
+          Please enter a valid last name
+        </mat-error>
+        <mat-error *ngIf="userFormControl.hasError('required')">
+          Last Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br><br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Username" [formControl]="userFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="userFormControl.hasError('Username') && !userFormControl.hasError('required')">
+          Please enter a valid username
+        </mat-error>
+        <mat-error *ngIf="userFormControl.hasError('required')">
+          Username is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br><br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password" type="password" [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="passwordFormControl.hasError('Username') && !passwordFormControl.hasError('required')">
+          Password should be Minimum eight characters, at least one letter and one number:
+        </mat-error>
+        <mat-error *ngIf="userFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br><br>
+
+      <mat-form-field class="example-full-width">
+            <input matInput placeholder="Confirm Password" type="password" [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="passwordFormControl.hasError('Username') && !passwordFormControl.hasError('required')">
+              Password should be Minimum eight characters, at least one letter and one number:
+            </mat-error>
+            <mat-error *ngIf="userFormControl.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br><br>
+    
+
+
+      <!-- Logic to add to disable when forms are not filled completely -->
+      <button mat-flat-button color="primary" [disabled]="">Sign up!</button>
+
+    </mat-card>
+  </div>
+
+</div>

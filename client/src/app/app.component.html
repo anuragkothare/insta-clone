@@ -1,1 +1,13 @@
-<app-login></app-login>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <!--  <span>HOME</span> -->
+    <a style="color: whitesmoke; font-weight: bold" href=""><span class="logo">InstaCool</span></a>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/signup">Sign Up</button>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
