@@ -28,10 +28,9 @@ let userSchema = new Schema({
         default: 'arhiwefkjsdbfkjsdbf'
     },
     created_on: {
-        type: Date,
-        default: Date.now
+        type: Date
     }
 })
 
 
-mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);
