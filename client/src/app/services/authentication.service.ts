@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class AuthenticationService {
 
   private loginUrl  = 'http://localhost:3001/api/v1/users/login';
-  private signupUrl = 'http://localhost:3000/api/v1/users/signup';
+  private signupUrl = 'http://localhost:3001/api/v1/users/signup';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -22,4 +22,11 @@ export class AuthenticationService {
     console.log(res);
     return res;
   }
+
+  registerUser(user) {
+    console.log(this.http.post<any>(this.signupUrl, user));
+    return this.http.post<any>(this.signupUrl, user);
+  }
+
+
 }

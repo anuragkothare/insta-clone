@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './core/material.module';
+import {MatButtonModule,MatSnackBarModule} from '@angular/material'
 
 
 import { AppRoutingModule } from './core/app.routing.module';
@@ -13,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { SignupComponent } from './signup/signup.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     LoginComponent,
     UserComponent,
     SignupComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -28,12 +31,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatSnackBarModule
   ],
   exports: [
-    CustomMaterialModule
+    CustomMaterialModule,
+    SnackbarComponent
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [SnackbarComponent],
 })
 export class AppModule { }

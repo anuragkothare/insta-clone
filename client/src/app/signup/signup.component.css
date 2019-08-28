@@ -1,7 +1,7 @@
 .example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+  min-width: 15px;
+  max-width: 50px;
+  width: 10%;
 }
 
 .example-full-width {
@@ -9,8 +9,8 @@
 }
 
 .matcard {
-  width: 34%;
-  height: 8%;
-  /* margin-right: 89px; */
-  margin-left: 30%;
+  width: 35%;
+  height: 100%;
+
+  margin-left: 28%;
 }

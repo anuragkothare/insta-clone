@@ -5,3 +5,19 @@
 button {
   color: white;
 }
+
+.logo {
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-size: 1.6rem;
+}
+
+a, u {
+  text-decoration: none;
+}
+
+#custom-nav {
+  -webkit-box-shadow: 10px 10px 10px rgb(155, 154, 154);
+  -moz-box-shadow:    10px 10px 10px rgb(155, 154, 154);
+  box-shadow:         10px 10px 10px rgb(155, 154, 154);
+  z-index:999;
+}

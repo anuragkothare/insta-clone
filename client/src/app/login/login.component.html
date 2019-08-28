@@ -1,33 +1,38 @@
 <br>
-<br>
+<div class="container">
+ 
+  <mat-card class="example-card">
+    <mat-card-title><h3></h3></mat-card-title>
+    <mat-card-header>
+      <img mat-card-md-image src="../../assets/lock.png">
+      <mat-card-title><h3>User Login</h3></mat-card-title>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Username" [(ngModel)]="loginUserData.username" name="username" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" [(ngModel)]="loginUserData.password" type="password"
+                  name="password" required>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary">Login</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
 
-<mat-card class="example-card container">
-  <mat-card-header>
-    <mat-card-title>Insta Login</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form class="example-form">
-      <table class="example-full-width" cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Username" [(ngModel)]="loginUserData.username" name="username" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Password" [(ngModel)]="loginUserData.password" type="password"
-                name="password" required>
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-    </form>
-    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button (click)="login()" color="primary">Login</button>
-  </mat-card-actions>
-</mat-card>
