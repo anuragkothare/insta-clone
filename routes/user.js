@@ -10,8 +10,6 @@ module.exports.setRouter = (app) => {
 
     // Defining Routes
 
-
-
     app.get(baseUrl + '/hello', userController.helloWorldFunc);
 
     app.post(`${baseUrl}/signup`, userController.signUpFunction);

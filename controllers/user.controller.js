@@ -1,4 +1,3 @@
-const express = require('express');
 const mongoose = require('mongoose');
 const shortid = require('shortid');
 const check = require('../lib/checkLib');
@@ -15,7 +14,6 @@ const time = require('./../lib/timeLib');
 const UserModel = mongoose.model('User');
 
 let helloWorldFunc = (req, res) => res.send('Hello World');
-
 
 
 
@@ -80,7 +78,7 @@ let signUpFunction = (req, res) => {
         .then(createUser)
         .then((resolve) => {
             delete resolve.password;
-            let apiResponse = response.generate(false, 'User created', 200, resolve);
+            let apiResponse = response.generate(false, 'User created', 201, resolve);
             res.send(apiResponse);
         })
         .catch((err) => {
@@ -88,8 +86,6 @@ let signUpFunction = (req, res) => {
             res.send(err);
         })
 }  // end user signup function 
-
-
 
 
 
