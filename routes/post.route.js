@@ -19,6 +19,7 @@ const fileFilter = (req, file, cb) => {
     // reject a file
     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/jpg' || file.mimetype === 'image/png') {
         cb(null, true);
+    // else reject
     } else {
         cb(null, false);
     }   
@@ -40,7 +41,9 @@ module.exports.setRouter = (app) => {
 
     // Defining Routes
 
-    app.post(`${baseUrl}/post`, auth.isAuthorized, upload.single('post_image'), instapostController.createPost);
+    // app.post(`${baseUrl}/post`, upload.single('post_image'), instapostController.createPost);
+
+    app.post(`${baseUrl}/post`,auth.isAuthorized, upload.single('post_image'), instapostController.createPost);
 
     app.post(`${baseUrl}/like`, instapostController.likePost);
      

@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Add Insta Post</h2>
+
+<mat-dialog-content example-form [formGroup]="myForm">
+
+  <mat-form-field class="example-full-width caption">
+    <textarea matInput placeholder="Write Something here.." formControlName="post_caption"></textarea>
+  </mat-form-field>
+  <br>
+
+  <br>
+
+  <h5>Uplaod Picture</h5>
+  <span></span>
+  <input class="btn btn-outline-info" type="file" (change)="onFileChange($event)">
+
+</mat-dialog-content>
+<br><br>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-flat-button [mat-dialog-close]="" cdkFocusInitial (click)="onPost()" color="primary">Post</button>
+</div>

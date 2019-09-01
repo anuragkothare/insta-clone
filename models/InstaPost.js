@@ -1,30 +1,26 @@
 const mongoose = require('mongoose');
+const User = require('../models/User');
 
 // import schema
 const Schema = mongoose.Schema;
 
 const instaPostSchema = new Schema({
-    post_id: {
-        type: String,
-        default: '',
-        index: true,
-        unique: true,
+    _id: {
+        type: Schema.Types.ObjectId
     },
-    title: {
+    post_caption: {
         type: String,
         default: ''
     },
     posted_by: {
-        // type: mongoose.Schema.Types.ObjectId, ref: 'User'
-        type: String
+        type: mongoose.Schema.Types.ObjectId, ref: 'User'
     },
     post_image: {
         type: String,
         required:true
     },
     likes: {
-        type: Number,
-        default: 0
+        type: [{ type: Schema.Types.ObjectId, ref: 'User' }]
     },
     created_on: {
         type: Date

@@ -5,7 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './core/material.module';
-import {MatButtonModule,MatSnackBarModule} from '@angular/material'
+import { MatButtonModule, MatSnackBarModule } from '@angular/material';
+import { MatDividerModule } from '@angular/material/divider';
+
+import { FileSelectDirective } from 'ng2-file-upload';
 
 
 import { AppRoutingModule } from './core/app.routing.module';
@@ -13,8 +16,10 @@ import { AppRoutingModule } from './core/app.routing.module';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { SignupComponent } from './signup/signup.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SnackbarComponent } from './snackbar/snackbar.component';
+import { InstaFormComponent } from './insta-form/insta-form.component';
+import { InstaFeedComponent } from './insta-feed/insta-feed.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,10 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     LoginComponent,
     UserComponent,
     SignupComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    InstaFormComponent,
+    FileSelectDirective,
+    InstaFeedComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +41,8 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     AppRoutingModule,
     HttpClientModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDividerModule
   ],
   exports: [
     CustomMaterialModule,
@@ -41,6 +50,6 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [SnackbarComponent],
+  entryComponents: [SnackbarComponent, InstaFormComponent],
 })
 export class AppModule { }

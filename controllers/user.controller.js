@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const shortid = require('shortid');
 const check = require('../lib/checkLib');
 const response = require('./../lib/responseLib');
 const passwordLib = require('./../lib/generatePassword');
@@ -47,7 +46,7 @@ let signUpFunction = (req, res) => {
                     } else if (check.isEmpty(retrievedUserDetails)) {
                         console.log(req.body);
                         let newUser = new UserModel({
-                            user_id: shortid.generate(),
+                            _id: new mongoose.Types.ObjectId(),
                             first_name: req.body.first_name,
                             last_name: req.body.last_name || '',
                             username: req.body.username,
@@ -115,6 +114,7 @@ let loginFunction = (req, res) => {
                         /* prepare the message and the api response here */
                         logger.info('User Found', 'userController: findUser()', 10);
                         resolve(userDetails);
+                        console.log(userDetails);
                     }
                 });
                
@@ -210,7 +210,8 @@ let loginFunction = (req, res) => {
                                 authToken: newTokenDetails.authToken,
                                 userDetails: tokenDetails.userDetails
                             }
-                            resolve(responseBody)
+                            resolve(responseBody);
+                            console.log(responseBody);
                             res.send(responseBody);
                         }
                     })
@@ -244,13 +245,11 @@ let loginFunction = (req, res) => {
 
 
 
-
-
-
-
 let logoutFunction = (req, res) => {
 
 }
+
+
 
 
 module.exports = {

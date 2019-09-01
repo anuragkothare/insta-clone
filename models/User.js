@@ -1,15 +1,15 @@
 // importing mongoose 
 const mongoose = require('mongoose');
 
+
+
 // import schema
 const Schema = mongoose.Schema;
 
 let userSchema = new Schema({
-    user_id: {
-        type: String,
-        default: '',
-        index: true,
-        unique: true    
+    _id: {
+        type: Schema.Types.ObjectId,
+        index: 1 
     },
     first_name: {
         type: String,

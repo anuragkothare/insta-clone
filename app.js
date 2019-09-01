@@ -6,6 +6,7 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+var cors = require('cors');
 
 
 var helmet = require('helmet');
@@ -16,8 +17,10 @@ const logger = require('./lib/loggerLib');
 const app = express()
 
 //middlewares
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(bodyParser.json({limit: '50mb', extended: true}))
+app.use(bodyParser.urlencoded({limit: '50mb', extended: false }))
+
 app.use(cookieParser())
 
 app.use(helmet())
@@ -26,7 +29,7 @@ app.use(helmet())
 // Enabling CORS
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authToken");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
     next();
 });
