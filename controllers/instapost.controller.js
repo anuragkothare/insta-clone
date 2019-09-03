@@ -67,8 +67,14 @@ let getAllPosts = async (req, res) => {
        postMap.push(post);
    })
 
-   res.send(postMap);
+   res.send(postMap.reverse());
 
+
+}
+
+let likePost = async (req, res) => {
+   const post = await InstaPostModel.findOne({ _id: req.body.post_id });
+   res.send(post); 
 
 }
 
@@ -94,5 +100,6 @@ let getAllPosts = async (req, res) => {
 
 module.exports = {
     createPost,
-    getAllPosts
+    getAllPosts,
+    likePost
 }
