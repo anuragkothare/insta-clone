@@ -7,9 +7,13 @@
 git clone https://github.com/anuragkothare/insta-clone
 cd insta-clone
 npm install
-npm start 
+npm start
 
-#### For Client Side Side 
-cd client
+Server will listen on localhost:3001
+
+#### For Client Side 
+cd /insta-clone/client
 npm install
 npm start
+
+Client App Server will listen on localhost:4200
