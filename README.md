@@ -1,4 +1,4 @@
-# Welcome to the Instawave Mean Stack Photo Sharing Web App.
+# Welcome to the Instawave Mean Stack Photo Sharing Application.
 
 ### Pre-requisites
 * git - [Installation guide](https://www.linode.com/docs/development/version-control/how-to-install-git-on-linux-mac-and-windows/) .  
