@@ -13,7 +13,8 @@ const instaPostSchema = new Schema({
         default: ''
     },
     posted_by: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'User'
+        type: String,
+        default: 'anonymous'
     },
     post_image: {
         type: String,

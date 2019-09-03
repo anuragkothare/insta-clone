@@ -1,0 +1,17 @@
+.feed {
+    align-content: center;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+  
+  .example-card {
+    max-width: 440px; 
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    font-family: 'Nunito', sans-serif;
+    align-items: center;
+  }
+  
+  .example-header-image {
+    /* background-image: url('https://images.pexels.com/photos/413723/pexels-photo-413723.jpeg?h=350&auto=compress&cs=tinysrgb'); */
+    background-size: cover;
+  }

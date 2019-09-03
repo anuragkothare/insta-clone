@@ -23,6 +23,8 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: false }))
 
 app.use(cookieParser())
 
+app.use('/uploads', express.static('uploads'));
+
 app.use(helmet())
 
 

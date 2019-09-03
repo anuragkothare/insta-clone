@@ -10,6 +10,7 @@ export class InstaPostService {
   authToken = localStorage.getItem('token');
 
   private instaPostUrl  = 'http://localhost:3001/api/v1/users/post';
+  private allPostUrl  = 'http://localhost:3001/api/v1/users/posts';
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +20,12 @@ export class InstaPostService {
         authToken: this.authToken
       }
     });
+  }
+
+
+  getAllPost() {
+    console.log(this.http.get<any>(this.allPostUrl));
+    return this.http.get<any>(this.allPostUrl);
   }
 
 }

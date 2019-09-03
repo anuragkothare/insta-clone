@@ -13,6 +13,7 @@ export class AuthenticationService {
 
   private loginUrl  = 'http://localhost:3001/api/v1/users/login';
   private signupUrl = 'http://localhost:3001/api/v1/users/signup';
+  private allPostUrl = 'http://localhost:3001/api/v1/users/posts';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -26,6 +27,11 @@ export class AuthenticationService {
   registerUser(user) {
     console.log(this.http.post<any>(this.signupUrl, user));
     return this.http.post<any>(this.signupUrl, user);
+  }
+
+  getAllPost() {
+    console.log(this.http.get<any>(this.allPostUrl));
+    return this.http.get<any>(this.allPostUrl);
   }
 
 

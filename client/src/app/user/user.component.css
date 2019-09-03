@@ -11,7 +11,7 @@
 .create-btn {
   margin-right: 45%;
   font-family: 'Nunito', sans-serif;
-  color: coral
+  color: coral;
 }
 
 .feed {
@@ -21,7 +21,7 @@
 }
 
 .example-card {
-  max-width: 430px; 
+  max-width: 380px; 
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
   font-family: 'Nunito', sans-serif;
   align-items: center;

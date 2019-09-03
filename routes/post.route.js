@@ -41,10 +41,8 @@ module.exports.setRouter = (app) => {
 
     // Defining Routes
 
-    // app.post(`${baseUrl}/post`, upload.single('post_image'), instapostController.createPost);
-
     app.post(`${baseUrl}/post`,auth.isAuthorized, upload.single('post_image'), instapostController.createPost);
 
-    app.post(`${baseUrl}/like`, instapostController.likePost);
+    app.get(`${baseUrl}/posts`, instapostController.getAllPosts);
      
 }

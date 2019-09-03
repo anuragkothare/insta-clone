@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
   durationInSeconds = 5;
 
   constructor(private auth: AuthenticationService,
-    private router: Router, private snackBar: MatSnackBar) { }
+              private router: Router, private snackBar: MatSnackBar) { }
 
   userFormControl = new FormControl('', [
     Validators.required,
@@ -67,7 +67,7 @@ export class SignupComponent implements OnInit {
     this.auth.registerUser(this.resgisterObj)
       .subscribe(
         res => {
-          if (res.user_id) {
+          if (res._id) {
             this.openSnackBar();
             this.router.navigate(['/login']);
           } else {

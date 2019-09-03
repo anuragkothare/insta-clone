@@ -1,1 +1,25 @@
-<p>insta-feed works!</p>
+<div class="instaPosts">
+  <div *ngFor="let post of instaPosts">
+    <mat-card class="container example-card">
+      <mat-card-header>
+        <img mat-card-avatar src="https://m.media-amazon.com/images/M/MV5BNzNmM2M4ZjAtNzkzNy00NzczLWE3MmItMjkyMmI2MGQ2ODNhXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_UX172_CR0,0,172,256_AL_.jpg">
+        <mat-card-title>{{post.posted_by }}</mat-card-title>
+        <mat-card-subtitle>Bangalore</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="http://localhost:3001/{{post.post_image}}" alt="Photo of a Insta User Post">
+      <mat-card-content>
+        <h6>
+          {{post.post_caption}}
+        </h6>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+    <br><br>
+  
+</div>
+
+
