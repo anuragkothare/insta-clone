@@ -28,11 +28,15 @@ let createPost = async (req, res) => {
             username: currUsername
         });
 
+        let image = {};
+        image.url = req.file.url;
+        image.id = req.file.public_id;
+
         let newPost = await new InstaPostModel({
             _id: new mongoose.Types.ObjectId(),
             post_caption: req.body.post_caption,
             posted_by: currentUserObj.username,
-            post_image: req.file.path,
+            post_image: image.url,
             created_on: time.now()
         })
 

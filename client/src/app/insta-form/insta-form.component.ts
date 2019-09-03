@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router} from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
@@ -25,7 +26,8 @@ export class InstaFormComponent implements OnInit {
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private dialogRef: MatDialogRef<InstaFormComponent>,
-    private instaPostService: InstaPostService
+    private instaPostService: InstaPostService,
+    private router: Router
   ) { }
 
   myForm: FormGroup;
@@ -52,9 +54,10 @@ export class InstaFormComponent implements OnInit {
   }
 
   openSuccesPostSnack() {
-    this.snackBar.open('Successfully', 'Posted Successfully', {
+    this.snackBar.open('Success', 'Posted Successfully', {
       duration: 2000
     });
+    this.router.navigate(['/user']);
   }
 
   onPost() {

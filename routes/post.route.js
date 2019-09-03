@@ -3,36 +3,31 @@ const instapostController = require('../controllers/instapost.controller');
 const appConfig = require('../config/appConfig');
 const auth = require('./../middleware/auth');
 const multer = require('multer');
+const cloudinary = require("cloudinary");
+const cloudinaryStorage = require("multer-storage-cloudinary");
 
 
-// Multer Configuration
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, './uploads');
-    },
-    filename: function(req, file, cb) {
-        cb(null, new Date().toISOString() + file.originalname);
-    }
-})
-
-const fileFilter = (req, file, cb) => {
-    // reject a file
-    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/jpg' || file.mimetype === 'image/png') {
-        cb(null, true);
-    // else reject
-    } else {
-        cb(null, false);
-    }   
-}
-
-const upload = multer({storage: storage, limits: {
-    fileSize: 1024 * 1024 * 5
-},
-fileFilter: fileFilter
+// Cloudinary Code
+cloudinary.config({
+    cloud_name: "dhywpcyym",
+    api_key: "557459989373116",
+    api_secret: "rW58Mqizpjy2-tMAQXEBRpJsBsI"
 });
 
+const storage = cloudinaryStorage({
+    cloudinary: cloudinary,
+    folder: "demo",
+    allowedFormats: ["jpg", "png", "jpeg"],
+    transformation: [{
+        width: 500,
+        height: 500,
+        crop: "limit"
+    }]
+});
 
-
+const parser = multer({
+    storage: storage
+});
 
 
 module.exports.setRouter = (app) => {
@@ -41,7 +36,7 @@ module.exports.setRouter = (app) => {
 
     // Defining Routes
 
-    app.post(`${baseUrl}/post`,auth.isAuthorized, upload.single('post_image'), instapostController.createPost);
+    app.post(`${baseUrl}/post`,auth.isAuthorized, parser.single('post_image'), instapostController.createPost);
 
     app.get(`${baseUrl}/posts`, instapostController.getAllPosts);
 
