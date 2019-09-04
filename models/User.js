@@ -2,14 +2,12 @@
 const mongoose = require('mongoose');
 
 
-
 // import schema
 const Schema = mongoose.Schema;
 
 let userSchema = new Schema({
     _id: {
-        type: Schema.Types.ObjectId,
-        index: 1 
+        type: Schema.Types.ObjectId
     },
     first_name: {
         type: String,

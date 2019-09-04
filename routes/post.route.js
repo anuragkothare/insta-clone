@@ -40,7 +40,7 @@ module.exports.setRouter = (app) => {
 
     app.get(`${baseUrl}/posts`, instapostController.getAllPosts);
 
-    app.get(`${baseUrl}/like`, instapostController.likePost);
+    app.put(`${baseUrl}/like/:post_id`, instapostController.likePost);
 
      
 }

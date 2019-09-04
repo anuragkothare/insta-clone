@@ -11,6 +11,7 @@ export class InstaPostService {
 
   private instaPostUrl  = 'http://localhost:3001/api/v1/users/post';
   private allPostUrl  = 'http://localhost:3001/api/v1/users/posts';
+  private likePostUrl  = 'http://localhost:3001/api/v1/users/like';
 
   constructor(private http: HttpClient) { }
 
@@ -26,6 +27,15 @@ export class InstaPostService {
   getAllPost() {
     console.log(this.http.get<any>(this.allPostUrl));
     return this.http.get<any>(this.allPostUrl);
+  }
+
+  likePost(postId) {
+    console.log('Front Run');
+    this.http.put<any>(this.likePostUrl + '/' + postId, {} ).subscribe(
+      (data) => {
+        console.log(data);
+      }
+    );
   }
 
 }

@@ -23,6 +23,10 @@ const instaPostSchema = new Schema({
     likes: {
         type: [{ type: Schema.Types.ObjectId, ref: 'User' }]
     },
+    likes_count: {
+        type: Number,
+        default: 0
+    },
     created_on: {
         type: Date
     }

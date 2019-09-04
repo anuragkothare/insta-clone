@@ -76,9 +76,19 @@ let getAllPosts = async (req, res) => {
 
 }
 
+// Like Post
 let likePost = async (req, res) => {
-   const post = await InstaPostModel.findOne({ _id: req.body.post_id });
-   res.send(post); 
+       await InstaPostModel.findById(req.params.post_id, (err, instapost) => {
+       if(err) {
+           res.send(err);
+       }
+       instapost.likes_count++;
+
+       instapost.save((err) => {
+           if(err) res.send(err);
+           res.json({ message: 'Likes Updated' });
+       })
+   });
 
 }
 
