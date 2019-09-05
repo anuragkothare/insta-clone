@@ -86,7 +86,7 @@ let likePost = async (req, res) => {
 
        instapost.save((err) => {
            if(err) res.send(err);
-           res.json({ message: 'Likes Updated' });
+           res.send(instapost);
        })
    });
 

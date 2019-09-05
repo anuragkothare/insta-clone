@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { map } from 'rxjs/operators';
 import { User } from '../models/User';
 
@@ -15,7 +16,7 @@ export class AuthenticationService {
   private signupUrl = 'http://localhost:3001/api/v1/users/signup';
   private allPostUrl = 'http://localhost:3001/api/v1/users/posts';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, public jwtHelper: JwtHelperService) { }
 
   login(user) {
     console.log('I m auth service');
@@ -32,6 +33,13 @@ export class AuthenticationService {
   getAllPost() {
     console.log(this.http.get<any>(this.allPostUrl));
     return this.http.get<any>(this.allPostUrl);
+  }
+
+  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    // Check whether the token is expired and return
+    // true or false
+    return !this.jwtHelper.isTokenExpired(token);
   }
 
 

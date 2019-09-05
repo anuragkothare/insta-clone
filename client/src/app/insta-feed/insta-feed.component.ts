@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InstaPostService } from '../services/insta-post.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-insta-feed',
@@ -8,7 +9,7 @@ import { InstaPostService } from '../services/insta-post.service';
 })
 export class InstaFeedComponent implements OnInit {
 
-  instaPosts = [];
+  instaPosts$: Observable<Array<any>> ;
 
   constructor(private instaService: InstaPostService) { }
 
@@ -17,22 +18,16 @@ export class InstaFeedComponent implements OnInit {
   }
 
   getAllPost() {
-    this.instaService.getAllPost()
-      .subscribe((res) => {
-        this.instaPosts = res;
-        console.log(this.instaPosts);
-      });
+    this.instaPosts$ = this.instaService.getAllPost();
   }
 
   async likeButton(post) {
-    console.log('Like Func called');
-    await this.instaService.likePost(post._id);
-    this.instaService.getAllPost().subscribe(
+    await this.instaService.likePost(post._id).subscribe(
       (data) => {
-        this.instaPosts = data;
+        console.log(data);
       },
       error => console.log(error)
-    );
+      );
   }
 
 

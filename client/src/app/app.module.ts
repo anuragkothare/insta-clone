@@ -21,6 +21,8 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
 import { InstaFormComponent } from './insta-form/insta-form.component';
 import { InstaFeedComponent } from './insta-feed/insta-feed.component';
 
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,10 @@ import { InstaFeedComponent } from './insta-feed/insta-feed.component';
     CustomMaterialModule,
     SnackbarComponent
   ],
-  providers: [],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+        JwtHelperService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [SnackbarComponent, InstaFormComponent],
 })

@@ -1,5 +1,5 @@
 <div class="instaPosts">
-  <div *ngFor="let post of instaPosts">
+  <div *ngFor="let post of instaPosts$ | async">
     <mat-card class="container example-card">
       <mat-card-header>
             <img mat-card-avatar src="https://randomuser.me/api/portraits/men/44.jpg">
@@ -14,7 +14,7 @@
       </mat-card-content>
       <mat-divider></mat-divider>
       <mat-card-actions>
-        {{ post.likes_count }} <span></span> <button mat-button (click)="likeButton(post)"> LIKE</button>
+        <span></span> <button mat-button (click)="likeButton(post)"> <strong>{{ post.likes_count }}</strong> LIKE</button>
         <button mat-button>SHARE</button>
       </mat-card-actions>
     </mat-card>

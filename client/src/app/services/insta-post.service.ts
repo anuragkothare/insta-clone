@@ -31,11 +31,7 @@ export class InstaPostService {
 
   likePost(postId) {
     console.log('Front Run');
-    this.http.put<any>(this.likePostUrl + '/' + postId, {} ).subscribe(
-      (data) => {
-        console.log(data);
-      }
-    );
+    return this.http.put<any>(this.likePostUrl + '/' + postId, {} );
   }
 
 }
